@@ -24,7 +24,7 @@ const HomePage = () => {
                 
                 <div key={index}>
                     <strong>{advocate.username}</strong>
-                    <Link to={`/advocate/${advocate.username}`}>View</Link>
+                    <Link to={`/advocates/${advocate.username}`}>View</Link>
                 </div>
             ))}
         </div>

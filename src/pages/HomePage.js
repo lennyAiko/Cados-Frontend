@@ -11,10 +11,10 @@ const HomePage = () => {
     }, [])
 
     let getData = async () => {
-        let response = await axios.get('http://localhost:8000/advocates/')
+        let response = await axios.get('http://localhost:8000/advocates/')                 
         setAdvocates(response.data)
     }
-
+    
     return (
     <div>
         <h1>HomePage</h1>

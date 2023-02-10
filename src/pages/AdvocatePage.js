@@ -10,12 +10,12 @@ const AdvocatePage = () => {
     const [advocate, setAdvocate] = useState(null)
 
     useEffect(() => {
-        getData()
+        getData() 
     }, [username]) // when username changes, run that function
 
     let getData = async () => {
-        // let response = await axios.get(`http://localhost:8000/advocates/${username}`)
-        let response = await axios.get(`http://localhost:8000/advocates/lennox`)
+        let response = await axios.get(`http://localhost:8000/advocates/${username}`)
+
         setAdvocate(response.data)
     }
 

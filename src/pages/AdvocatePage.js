@@ -14,17 +14,22 @@ const AdvocatePage = () => {
     }, [username]) // when username changes, run that function
 
     let getData = async () => {
-        let response = await axios.get(`http://localhost:8000/advocates/${username}`)
+        let response = await axios.get(`https://cados.up.railway.app/advocates/${username}`)
 
-        setAdvocate(response.data)
+        setAdvocate(response.data.advocate)
     }
 
     return ( 
     <>
         {advocate && (
-            <div>
-                <h1>{advocate.username}</h1>
-                <p>{advocate.bio}</p>
+            <div className='advocate__preview__wrapper'>
+                
+                <img className='advocate__preview__image' src={advocate.profile_pic} />
+                
+                <strong>{advocate.name}</strong>
+                <br/>
+                <a href={advocate.twitter}>@{advocate.username}</a>
+                <small>{advocate.bio}</small>
             </div>
         )}
     </>

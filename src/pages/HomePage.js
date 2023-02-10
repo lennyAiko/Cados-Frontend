@@ -11,8 +11,8 @@ const HomePage = () => {
     }, [])
 
     let getData = async () => {
-        let response = await axios.get('http://localhost:8000/advocates/')                 
-        setAdvocates(response.data)
+        let response = await axios.get('https://cados.up.railway.app/advocates/')                 
+        setAdvocates(response.data.advocates)
     }
     
     return (
@@ -22,8 +22,10 @@ const HomePage = () => {
         <div>
             {advocates.map((advocate, index) => (
                 
-                <div key={index}>
-                    <strong>{advocate.username}</strong>
+                <div className='advocate__preview__wrapper' key={index}>
+                    <img className='advocate__preview__image' src={advocate.profile_pic} />
+                    <strong>{advocate.name}</strong>
+                    <a href={advocate.twitter}>@{advocate.username}</a>
                     <Link to={`/advocates/${advocate.username}`}>View</Link>
                 </div>
             ))}

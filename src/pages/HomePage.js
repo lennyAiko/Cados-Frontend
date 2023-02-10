@@ -16,17 +16,17 @@ const HomePage = () => {
     }
     
     return (
-    <div>
-        <h1>HomePage</h1>
+    <div className='main--container'>
+        <h2>Search (ADD NUMBER HERE) developer advocates found by @lennyaiko webscrapper and the TwitterAPI.</h2>
 
-        <div>
+        <div className='advocate__list'>
             {advocates.map((advocate, index) => (
                 
                 <div className='advocate__preview__wrapper' key={index}>
                     <img className='advocate__preview__image' src={advocate.profile_pic} />
                     <strong>{advocate.name}</strong>
                     <a href={advocate.twitter}>@{advocate.username}</a>
-                    <Link to={`/advocates/${advocate.username}`}>View</Link>
+                    
                 </div>
             ))}
         </div>

@@ -12,21 +12,29 @@ const HomePage = () => {
         getData()
     }, [])
 
-    let getData = async () => {
-        let response = await axios.get('https://cados.up.railway.app/advocates/')                 
+    let getData = async (query = '') => {
+        let response = await axios.get(`https://cados.up.railway.app/advocates?query=${query}`)                 
         setAdvocates(response.data.advocates)
         setTotal(response.data.total)
         setPagination(response.data.pagination)
+    }
+
+    let searchData = (e) => {
+        e.preventDefault()
+        let query = e.target.query.value
+        getData(query)
     }
     
     return (
     <div className='main--container'>
         <h2>Search {total} developer advocates found by @lennyaiko webscrapper and the TwitterAPI</h2>
 
-        <div>
-            <form id="search_form">
-                <input type="text" value="query" />
-                <input type="submit" value="Search" />
+        <p>{pagination?.results_found} Developer advocates found</p>
+
+        <div className='form__wrapper'>
+            <form onSubmit={searchData} id="search_form">
+                <input type="text" name="query" placeholder='Search advocates...' />
+                <input type="submit" value="Search" className='btn__primary' />
             </form>
         </div>
 

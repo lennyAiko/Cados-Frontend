@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 
 const AdvocatePage = () => {
@@ -14,22 +14,30 @@ const AdvocatePage = () => {
     }, [username]) // when username changes, run that function
 
     let getData = async () => {
-        let response = await axios.get(`https://cados.up.railway.app/advocates/${username}`)
+        let response = await axios.get(`http://localhost:8000/advocates/${username}`)
 
-        setAdvocate(response.data.advocate)
+        setAdvocate(response.data)
     }
 
     return ( 
     <>
         {advocate && (
-            <div className='advocate__preview__wrapper'>
+            <div className='advocate__preview__wrapper_detail'>
+
+                    <div className='advocate__preview__header'>
+                        <img className='advocate__preview__image' src={advocate.profile_pic} />
+                        <div>
+                            <strong>{advocate.name}</strong>
+                            <br/>
+                            <a href={advocate.twitter} target="_blank">@{advocate.username}</a>
+                        </div>
+                    </div>
                 
-                <img className='advocate__preview__image' src={advocate.profile_pic} />
-                
-                <strong>{advocate.name}</strong>
-                <br/>
-                <a href={advocate.twitter}>@{advocate.username}</a>
                 <small>{advocate.bio}</small>
+
+                <Link to={'/'}>
+                    <p>Go back</p>
+                </Link>
             </div>
         )}
     </>

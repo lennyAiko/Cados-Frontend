@@ -14,8 +14,8 @@ const HomePage = () => {
 
     let getData = async (query = '') => {
         // let response = await axios.get(`https://cados.up.railway.app/advocates?query=${query}`)      
-        let response = await axios.get(`http://localhost:8000/advocates/?query=${query}`)
-        setAdvocates(response.data.advocates)
+        let response = await axios.get(`http://localhost:8000/advocates?query=${query}`)
+        setAdvocates(response.data)
         // setTotal(response.data.total)
         // setPagination(response.data.pagination)
     }

@@ -37,8 +37,8 @@ input {
   gap: 4em;
 }
 
-.advocate__preview__wrapper {
-
+.advocate__preview__wrapper_detail {
+  margin: 20px 20px;
 }
 
 .advocate__preview__header {

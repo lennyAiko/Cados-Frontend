@@ -5,6 +5,8 @@ import axios from 'axios'
 const HomePage = () => {
 
     const [advocates, setAdvocates] = useState([])
+    const [total, setTotal] = useState(0)
+    const [pagination, setPagination] = useState(null)
 
     useEffect(() => {
         getData()
@@ -13,11 +15,20 @@ const HomePage = () => {
     let getData = async () => {
         let response = await axios.get('https://cados.up.railway.app/advocates/')                 
         setAdvocates(response.data.advocates)
+        setTotal(response.data.total)
+        setPagination(response.data.pagination)
     }
     
     return (
     <div className='main--container'>
-        <h2>Search (ADD NUMBER HERE) developer advocates found by @lennyaiko webscrapper and the TwitterAPI.</h2>
+        <h2>Search {total} developer advocates found by @lennyaiko webscrapper and the TwitterAPI</h2>
+
+        <div>
+            <form id="search_form">
+                <input type="text" value="query" />
+                <input type="submit" value="Search" />
+            </form>
+        </div>
 
         <div className='advocate__list'>
             {advocates.map((advocate, index) => (
@@ -30,7 +41,7 @@ const HomePage = () => {
                         <div>
                             <strong>{advocate.name}</strong>
                             <br/>
-                            <a href={advocate.twitter}>@{advocate.username}</a>
+                            <a href={advocate.twitter} target="_blank">@{advocate.username}</a>
                         </div>
                     </div>
 

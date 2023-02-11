@@ -17,7 +17,8 @@ const HomePage = () => {
         let response = await axios.get(`http://localhost:8000/advocates?query=${query}`)
         setAdvocates(response.data[0])
         setTotal(response.data[1])
-        setQuery(response.data[2])
+        if (response.data[1] == response.data[2]) setQuery('')
+        else setQuery(response.data[2])
     }
 
     let searchData = (e) => {

@@ -28,6 +28,7 @@ const HomePage = () => {
 
     let fetchAdvocate = async () => {
         let reponse = await axios.get('http://localhost:8000/get_advocate')
+        window.location.reload()
     }
     
     return (

@@ -30,6 +30,8 @@ const AdvocatePage = () => {
                             <strong>{advocate.name}</strong>
                             <br/>
                             <a href={advocate.twitter} target="_blank">@{advocate.username}</a>
+                            <br />
+                            <strong>Company: {advocate.company.name}</strong>
                         </div>
                     </div>
                 

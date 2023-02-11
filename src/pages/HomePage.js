@@ -6,7 +6,7 @@ const HomePage = () => {
 
     const [advocates, setAdvocates] = useState([])
     const [total, setTotal] = useState(0)
-    const [pagination, setPagination] = useState(null)
+    const [query, setQuery] = useState(null)
 
     useEffect(() => {
         getData()
@@ -17,7 +17,7 @@ const HomePage = () => {
         let response = await axios.get(`http://localhost:8000/advocates?query=${query}`)
         setAdvocates(response.data[0])
         setTotal(response.data[1])
-        // setPagination(response.data.pagination)
+        setQuery(response.data[2])
     }
 
     let searchData = (e) => {
@@ -35,7 +35,7 @@ const HomePage = () => {
     <div className='main--container'>
         <h2>Search {total} developer advocates found by @lennyaiko webscrapper and the TwitterAPI</h2>
 
-        <p>{pagination?.results_found} Developer advocates found</p>
+        <p>{query} Developer advocates found</p>
 
         <div className='form__wrapper'>
             <form onSubmit={searchData} id="search_form">

@@ -31,7 +31,7 @@ const AdvocatePage = () => {
                             <br/>
                             <a href={advocate.twitter} target="_blank">@{advocate.username}</a>
                             <br />
-                            <strong>Company: {advocate.company.name}</strong>
+                            <strong>Company: {advocate.company.name} (dummy)</strong>
                         </div>
                     </div>
                 

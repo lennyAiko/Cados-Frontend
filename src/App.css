@@ -4,7 +4,8 @@ body {
 }
 
 a {
-  color: aquamarine
+  color: aquamarine;
+  text-decoration: none;
 }
 
 .main--container {

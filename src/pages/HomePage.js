@@ -25,6 +25,10 @@ const HomePage = () => {
         let query = e.target.query.value
         getData(query)
     }
+
+    let fetchAdvocate = async () => {
+        let reponse = await axios.get('http://localhost:8000/get_advocate')
+    }
     
     return (
     <div className='main--container'>
@@ -38,6 +42,8 @@ const HomePage = () => {
                 <input type="submit" value="Search" className='btn__primary' />
             </form>
         </div>
+
+        <button onClick={fetchAdvocate} className="btn">Get Advocate</button>
 
         <div className='advocate__list'>
             {advocates.map((advocate, index) => (

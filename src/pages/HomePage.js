@@ -15,10 +15,10 @@ const HomePage = () => {
     let getData = async (query = '') => {
         // let response = await axios.get(`https://cados.up.railway.app/advocates?query=${query}`)      
         let response = await axios.get(`http://localhost:8000/advocates?query=${query}`)
-        setAdvocates(response.data[0])
-        setTotal(response.data[1])
-        if (response.data[1] == response.data[2]) setQuery('')
-        else setQuery(response.data[2])
+        setAdvocates(response.data["advocates"])
+        setTotal(response.data["total"])
+        if (response.data["total"] == response.data["query"]) setQuery('')
+        else setQuery(response.data["query"])
     }
 
     let searchData = (e) => {

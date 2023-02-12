@@ -34,7 +34,7 @@ const HomePage = () => {
     
     return (
     <div className='main--container'>
-        <h2>Search {total} developer advocates found by @lennyaiko webscrapper and the TwitterAPI</h2>
+        <h2>Search {total} developer advocates found by @lennyaiko webscrapper and the CadosDevAPI</h2>
 
         <p>{query} Developer advocates found</p>
 
